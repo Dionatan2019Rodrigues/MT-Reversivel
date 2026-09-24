@@ -8,19 +8,19 @@ Simulador de uma Máquina de Turing Reversível baseada no modelo de 3 fitas pro
 
 ## Sumário
 
-1. [A Problematização](#1-a-problematização)
-2. [O que é uma Máquina de Turing Reversível?](#2-o-que-é-uma-máquina-de-turing-reversível)
-3. [A Solução de Bennett](#3-a-solução-de-bennett)
-4. [Os 3 Estágios de Execução](#4-os-3-estágios-de-execução)
+1. [Problematização](#1-problematização)
+2. [Máquina de Turing Reversível](#2-máquina-de-turing-reversível)
+3. [Solução de Bennett](#3-solução-de-bennett)
+4. [Estágios de Execução](#4-estágios-de-execução)
 5. [Estrutura do Projeto](#5-estrutura-do-projeto)
-6. [Como Executar](#6-como-executar)
+6. [Execução](#6-execução)
 7. [Formato de Entrada](#7-formato-de-entrada)
-8. [Funcionamento Passo a Passo no Software](#8-funcionamento-passo-a-passo-no-software)
-9. [Exemplo Completo de Execução](#9-exemplo-completo-de-execução)
+8. [Funcionamento](#8-funcionamento)
+9. [Exemplo Completo](#9-exemplo-completo)
 
 ---
 
-## 1. A Problematização
+## 1. Problematização
 
 Na computação tradicional, quando uma Máquina de Turing executa um passo, ela **sobrescreve** o símbolo anterior na fita. Essa informação é permanentemente perdida. Se quiséssemos "voltar no tempo" e desfazer a computação, não saberíamos qual símbolo estava ali antes.
 
@@ -34,7 +34,7 @@ A resposta é **sim**, e o modelo que ele propôs prova que qualquer função co
 
 ---
 
-## 2. O que é uma Máquina de Turing Reversível?
+## 2. Máquina de Turing Reversível
 
 Uma **Máquina de Turing Reversível** é uma MT na qual cada configuração possui **no máximo um predecessor**. Ou seja, dado qualquer estado da máquina, é possível determinar **univocamente** qual era o estado anterior. Não há ambiguidade: o caminho de volta é tão determinístico quanto o caminho de ida.
 
@@ -57,7 +57,7 @@ Para ser reversível, a MT precisa garantir que:
 
 ---
 
-## 3. A Solução de Bennett
+## 3. Solução de Bennett
 
 ### 3.1. Das Quíntuplas às Quádruplas
 
@@ -119,7 +119,7 @@ Bennett propôs uma máquina com **3 fitas** para garantir a reversibilidade com
 
 ---
 
-## 4. Os 3 Estágios de Execução
+## 4. Estágios de Execução
 
 A execução da MT reversível segue **3 estágios** sequenciais:
 
@@ -202,7 +202,7 @@ O código segue princípios de **Clean Code** com responsabilidades bem separada
 
 ---
 
-## 6. Como Executar
+## 6. Execução
 
 ### Pré-requisitos
 
@@ -270,7 +270,7 @@ Esta MT reconhece a linguagem **{0ⁿ1ⁿ | n ≥ 0}** — cadeias com a mesma q
 
 ---
 
-## 8. Funcionamento Passo a Passo no Software
+## 8. Funcionamento
 
 A seguir, a descrição detalhada do que o software faz em cada etapa:
 
@@ -370,7 +370,7 @@ Se todas as validações passam (`✓`), a reversibilidade foi demonstrada com s
 
 ---
 
-## 9. Exemplo Completo de Execução
+## 9. Exemplo Completo
 
 Para a entrada `0011` (linguagem 0ⁿ1ⁿ, n=2):
 
