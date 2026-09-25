@@ -438,6 +438,44 @@ A razão de **2.27x** (ao invés de ~4x) ocorre porque o estágio de cópia é s
 
 ---
 
+## 10. Interface Gráfica de Visualização
+
+Além da execução pelo terminal, o projeto possui uma interface gráfica para **visualizar a execução da Máquina de Turing Reversível em tempo real**.
+
+A interface gráfica funciona como um **visualizador**, não substituindo a entrada pelo terminal. A definição da Máquina de Turing continua sendo lida normalmente pela **entrada padrão (`stdin`)**, mantendo o formato de entrada já descrito neste documento.
+
+### 10.1. Visualização das três fitas
+
+Durante a execução, a interface apresenta as três fitas utilizadas pelo modelo de Bennett:
+
+- **Fita 1 — Trabalho:** mostra as alterações realizadas durante a computação e, posteriormente, sua restauração durante o retorno.
+- **Fita 2 — Histórico:** mostra os registros das quíntuplas executadas e sua limpeza durante o estágio de retorno.
+- **Fita 3 — Saída:** mostra os símbolos copiados durante o estágio de cópia.
+
+As fitas são atualizadas visualmente conforme as operações do simulador acontecem. A posição do cabeçote também é indicada na representação gráfica.
+
+### 10.2. Controles da interface
+
+A interface possui apenas dois controles de execução:
+
+- **Executar:** inicia a execução automática do simulador, atualizando a representação das fitas a cada passo.
+- **Passo a Passo:** executa a simulação de forma controlada, permitindo avançar uma operação por vez e observar as alterações nas fitas.
+
+Não há alteração na lógica da Máquina de Turing nem no formato de entrada utilizado pelo projeto.
+
+### 10.3. Execução em paralelo com o terminal
+
+A interface gráfica funciona em paralelo com a saída do terminal. Os `print()` originais do simulador continuam sendo executados, mantendo as informações detalhadas da execução no console.
+
+Ao mesmo tempo, o simulador envia o estado atual das fitas, do cabeçote, do estado da máquina, do estágio e da transição para o visualizador gráfico.
+
+Dessa forma, a mesma execução pode ser acompanhada:
+
+1. **No terminal**, pelos `print()` detalhados do simulador.
+2. **Na interface gráfica**, pela representação visual das três fitas em tempo real.
+
+---
+
 ## Referências
 
 - Bennett, C. H. (1973). *Logical Reversibility of Computation*. IBM Journal of Research and Development, 17(6), 525–532.
