@@ -9,6 +9,7 @@ import sys
 
 from parser import parse_input
 from simulador_reversivel import SimuladorReversivel
+from visualizador import Visualizador
 
 
 def _configurar_encoding() -> None:
@@ -20,14 +21,22 @@ def _configurar_encoding() -> None:
 
 
 def main() -> None:
-    """lê a entrada, parseia a MT e executa o simulador reversível."""
+    """lê a entrada, parseia a MT e inicia o simulador com a GUI."""
     _configurar_encoding()
 
     linhas = sys.stdin.read().strip().split('\n')
     mt = parse_input(linhas)
 
-    simulador = SimuladorReversivel(mt)
-    simulador.executar()
+    visualizador = Visualizador()
+
+    simulador = SimuladorReversivel(
+        mt,
+        callback=visualizador.enviar_evento,
+        controlador=visualizador,
+    )
+
+    visualizador.configurar(simulador)
+    visualizador.iniciar()
 
 
 if __name__ == '__main__':
