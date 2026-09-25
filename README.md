@@ -214,7 +214,11 @@ O código segue princípios de **Clean Code** com responsabilidades bem separada
 python simulador.py < entrada-quintupla.txt
 ```
 
-O programa lê a definição da MT pela **entrada padrão** (`stdin`), conforme especificado no enunciado.
+O programa lê a definição da MT pela **entrada padrão** (`stdin`), conforme especificado no enunciado. Mesmo assim se seu PowerShell não aceitar o redirecionamento utilizando o operador `<`. Execute o projeto com : 
+
+```bash
+Get-Content entrada-quintupla.txt | py simulador.py
+```
 
 ---
 
